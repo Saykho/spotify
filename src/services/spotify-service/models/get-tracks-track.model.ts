@@ -5,4 +5,9 @@ export interface GetTracksTrack {
     name: string;
     preview_url: string;
     artists: Artist[];
+    album: {
+        images: {
+            url: string;
+        }[]
+    };
 }

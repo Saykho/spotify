@@ -16,10 +16,15 @@ class SpotifyServiceImpl {
                     }),
                     name: track.name,
                     id: track.id,
-                    previewUrl: track.preview_url
+                    previewUrl: track.preview_url,
+                    imageUrl: track.album?.images[0]?.url,
                 } as Track;
             });
         });
+    }
+
+    getRecommendations() {
+
     }
 }
 

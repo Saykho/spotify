@@ -21,17 +21,19 @@ export function Login() {
 }
 
 const LoginContent = styled.div`
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  background: #0E002C;
   
   .login-link {
     max-width: 200px;
     width: 100%;
     height: 40px;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -44,6 +46,8 @@ const LoginButton = styled.button`
   padding: 10px 20px;
   background: rgba(15, 10, 222, 1);
   border-radius: 8px;
-  border: 1px solid black;
+  border: 1px solid rgba(15, 10, 222, 1);
   cursor: pointer;
+  color: white;
+  font-size: 16px;
 `;
