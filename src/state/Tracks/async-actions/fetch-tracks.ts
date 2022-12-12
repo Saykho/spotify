@@ -7,7 +7,7 @@ interface FetchTracksError {
 }
 
 export const searchTracks = createAsyncThunk<Track[], {tracksQuery: string}, { rejectValue: FetchTracksError }>(
-    "tracks/fetch",
+    "tracks/search",
     async ({tracksQuery}, thunkAPI) => {
         try {
             return await SpotifyService.getTracks(tracksQuery);
@@ -19,3 +19,4 @@ export const searchTracks = createAsyncThunk<Track[], {tracksQuery: string}, { r
         }
     }
 );
+

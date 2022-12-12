@@ -22,10 +22,6 @@ class SpotifyServiceImpl {
             });
         });
     }
-
-    getRecommendations() {
-
-    }
 }
 
 export const SpotifyService = new SpotifyServiceImpl();

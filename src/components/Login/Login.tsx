@@ -5,6 +5,7 @@ import { Pages } from "../../consts/pages";
 import { ValueStorageService } from "../../services/value-storage/value-storage-service";
 import { ValueStorageKeys } from "../../services/value-storage/value-storage-keys";
 import styled from "styled-components";
+import logoImage from "../../assets/img/logo.svg";
 
 export function Login() {
     useEffect(() => {
@@ -13,6 +14,7 @@ export function Login() {
 
     return (
         <LoginContent>
+            <Logo src={logoImage} alt="Logo"/>
             <NavLink to={Pages.spotifyRedirect} className="login-link">
                 <LoginButton onClick={() => RedirectService.redirectToSpotifyAuthPage()}>Войти</LoginButton>
             </NavLink>
@@ -20,22 +22,25 @@ export function Login() {
     );
 }
 
+const Logo = styled.img`
+  width: 200px;
+  height: 200px;
+  margin-bottom: 40px;
+`;
+
 const LoginContent = styled.div`
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
   background: #0E002C;
-  
+
   .login-link {
     max-width: 200px;
     width: 100%;
     height: 40px;
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 `
 

@@ -15,15 +15,19 @@ export function MainPage() {
             <AnimatedPlayer/>
             <Home>
                 <TrackSearch/>
-                <TackList>
-                    {tracks.map(track => (
-                        <TrackInfo onClick={(trackId) => {
-                            dispatch(setActiveTrack({
-                                id: trackId
-                            }));
-                        }} track={track} key={track.id}/>
-                    ))}
-                </TackList>
+                {tracks.find(t => t.id) ?
+                    <TackList>
+                        {tracks.map(track => (
+                            <TrackInfo onClick={(trackId) => {
+                                dispatch(setActiveTrack({
+                                    id: trackId
+                                }));
+                            }} track={track} key={track.id}/>
+                        ))}
+                    </TackList>
+                    : <NotFoundMessage>Такая песня не найдена</NotFoundMessage>
+                }
+
             </Home>
         </MainPageComponent>
     );
@@ -56,12 +60,17 @@ const playerAnim = keyframes`
 
 const AnimatedPlayer = styled(Player)`
   animation: ${playerAnim} 0.5s ease-in;
-`
-
+`;
 
 const TrackSearch = styled(Search)`
   position: sticky;
   top: 0;
   left: 0;
   background: #0E002C;
+`;
+
+const NotFoundMessage = styled.div`
+  color: white;
+  font-size: 20px;
+  margin-left: 62px;
 `;
